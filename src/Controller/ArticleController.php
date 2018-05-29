@@ -27,7 +27,7 @@ class ArticleController
      */
     public function show($slug){
         return new Response(sprintf(
-            "The news subject is: ".$slug
+            "The news subjeact is: ".$slug
         ));
     }
 }
