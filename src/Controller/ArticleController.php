@@ -28,6 +28,7 @@ class ArticleController extends AbstractController
      * @Route("/news/{slug}")
      */
     public function show($slug){
+        /*dump($slug, $this);*/
         $comments = [
             'i love fasting',
             'fasting improve cognitive inteligence',
