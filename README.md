@@ -24,7 +24,7 @@
     </ul>
     <li>composer require symfony/web-server-bundle –dev</li>
     <li>composer require sensiolabs/security-checker –dev (php bin/console security:check)</li>
-    <li>composer require twig</li>
+    <li>composer require twig (the view blessing )</li>
     <li>composer require profiler –dev (debugger bar en dessous de la page)</li>
     <li>composer require debug –dev (debugger)</li>
     <li>composer remove <lib> (remove a package)</li>
