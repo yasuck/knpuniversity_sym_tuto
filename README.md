@@ -30,11 +30,13 @@
     <li>composer remove <lib> (remove a package)</li>
     <li>composer require knplabs/knp-markdown-bundle (markdowns like <b></b>)</li>
     <li>composer require maker (php bin/console make:controller)</li>
+    <br>
+    <li>bin/console debug:autowiring (to see all the autowiring services - not the full list)</li>
+    <li>bin/console debug:counter --show-private (to see all the autowiring services - full list)</li>
     <li>
-    bin/console config:dump BundleName(config/bundles)<br>
+    bin/console config:dump BundleName | bin/console debug:config bundleName (i did it for framwork[cache])<br>
     you can configure the default features of a bundle, in my case i did it for KnpMardownBundle <br>
     and i created a knp_markdown.yaml file in config/packages
     bin/console cache:clear
-
     </li>
 </ul>

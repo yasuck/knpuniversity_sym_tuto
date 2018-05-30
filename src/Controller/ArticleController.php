@@ -33,7 +33,7 @@ class ArticleController extends AbstractController
     /**
      * @Route("/news/{slug}", name="article_show")
      */
-    public function show($slug, MarkdownInterface $markdown, AdapterInterface $adapter)
+    public function show($slug, MarkdownInterface $markdown, AdapterInterface $cache)
     {
         /*dump($slug, $this);*/
         $comments = [
@@ -59,14 +59,14 @@ cow est ribeye adipisicing. Pig hamburger pork belly enim. Do porchetta minim ca
 EOF;
 
 
-        $item = $adapter->getItem('markdown_'.md5($articleContent));
+        $item = $cache->getItem('markdown_'.md5($articleContent));
         if (!$item->isHit()){
             $item->set($markdown->transform($articleContent));
-            $adapter->save($item);
+            $cache->save($item);
         }
 
         $articleContent = $item->get();
-        dump($markdown);die;
+        dump($cache);die;
         $articleContent = $markdown->transform($articleContent);
 
         return $this->render("article/show.html.twig", [
