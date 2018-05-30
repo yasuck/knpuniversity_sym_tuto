@@ -30,4 +30,11 @@
     <li>composer remove <lib> (remove a package)</li>
     <li>composer require knplabs/knp-markdown-bundle (markdowns like <b></b>)</li>
     <li>composer require maker (php bin/console make:controller)</li>
+    <li>
+    bin/console config:dump BundleName(config/bundles)<br>
+    you can configure the default features of a bundle, in my case i did it for KnpMardownBundle <br>
+    and i created a knp_markdown.yaml file in config/packages
+    bin/console cache:clear
+
+    </li>
 </ul>
