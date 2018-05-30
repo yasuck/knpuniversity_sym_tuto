@@ -39,4 +39,18 @@
     and i created a knp_markdown.yaml file in config/packages
     bin/console cache:clear
     </li>
+    <li>
+    The first script loaded is public/index.php who contains an instance of the kernel<br>
+    the kernel is the core of the framework who gets routes, services, bundles, logs & cache<br>
+    There are 3 environments: dev, prod & test (config/packages)<br>
+    config/budles.php contains the used bundles and in witch environment must be used ('all', 'dev', 'prod', 'test')<br>
+    The .yaml file name doesnt matter, important are the parameters
+    </li>
+    <li>
+    To switch to another environment: open .env file and change the APP_ENV environment variable<br>
+    Clear the cache each time u change the environment and for every a view update (prod mode): php bin/console cache:clear | <warmup><br>
+    
+    
+    
+    </li>
 </ul>
