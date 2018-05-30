@@ -49,8 +49,13 @@
     <li>
     To switch to another environment: open .env file and change the APP_ENV environment variable<br>
     Clear the cache each time u change the environment and for every a view update (prod mode): php bin/console cache:clear | <warmup><br>
-    
-    
-    
     </li>
+    <li>
+    You can create your own service in src/Services using other services
+    </li>
+    <li>
+    php bin/console debug:container LoggerInterface 
+    php bin/console debug:container --show-private <container_name> (to see all services of the service containers or just one)
+    
+
 </ul>
