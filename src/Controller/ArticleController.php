@@ -33,6 +33,7 @@ class ArticleController extends AbstractController
     public function show($slug, MarkdownInterface $markdown, AdapterInterface $cache, MarkdownHelper $markdownHelper)
     {
         /*dump($slug, $this);*/
+        dump($cache);die;
         $comments = [
             'i love fasting',
             'fasting improve cognitive inteligence',
