@@ -13,6 +13,7 @@
                 git remote add origin https://github.com/yasuck/knpuniversity_sym_tuto.git <br>
                 git push -u origin master <br>
                 //Other git add . / git commit –m ‘’message’’ / git push <br>
+                git update-index --assume-unchanged path/to/file <br>
                 </code>
             </li>
         </ul>
@@ -56,6 +57,7 @@
     <li>
     php bin/console debug:container LoggerInterface 
     php bin/console debug:container --show-private <container_name> (to see all services of the service containers or just one)
-    
-
+    </li>
+    <li>ATM u can only autowire Services(ctrl is a service ;)) not vars like bool, int  ... in a ctrl function, u need to initialise them <br>
+    in the __construc 
 </ul>
