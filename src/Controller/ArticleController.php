@@ -39,12 +39,15 @@ class ArticleController extends AbstractController
      */
     public function show($slug, MarkdownInterface $markdown, AdapterInterface $cache, MarkdownHelper $markdownHelper, bool $isDebug)
     {
+        /*dump($slug, $this);*/
         dump($isDebug);die;
         $comments = [
             'i love fasting',
             'fasting improve cognitive inteligence',
             'cognitive & emotional inteligence are different'
         ];
+
+        dump($cache);die;
 
         $articleContent = <<<EOF
 Spicy **jalapeno bacon** ipsum dolor amet veniam shank in dolore. Ham hock nisi landjaeger cow,
