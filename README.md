@@ -60,4 +60,8 @@
     </li>
     <li>ATM u can only autowire Services(ctrl is a service ;)) not vars like bool, int  ... in a ctrl function, u need to initialise them <br>
     in the __construc 
+    </li>
+    <li>
+    Sometimes when services can't be used with autowiring, we need to config it in config/ to create an alias <br>
+    to allow symfony recognise the service when autowiring :) (see example in services.yaml nexyslack)
 </ul>

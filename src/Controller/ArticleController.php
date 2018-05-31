@@ -41,7 +41,7 @@ class ArticleController extends AbstractController
      */
     public function show($slug, MarkdownInterface $markdown, AdapterInterface $cache, MarkdownHelper $markdownHelper, Client $slack)
     {
-        if($slack == "khaaaan"){
+        if($slug == "khaaaan"){
             $message = $slack->createMessage()
                 ->from('Khan')
                 ->withIcon(':ghost:')

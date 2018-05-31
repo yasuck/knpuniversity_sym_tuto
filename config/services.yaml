@@ -14,7 +14,9 @@ services:
         bind:
           $markdownLogger : '@monolog.logger.markdown'
           $isDebug : true
-          Nexy\Slack\Client: '@nexy_slack.client'
+
+    #It is put under services to show it in the autowiring list: php bin/console debug:autowiring
+    Nexy\Slack\Client: '@nexy_slack.client'
 
 
     # makes classes in src/ available to be used as services
