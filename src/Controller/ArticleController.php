@@ -19,6 +19,13 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ArticleController extends AbstractController
 {
+
+    private $isDebug;
+    public function __construct(bool $isDebug)
+    {
+        $this->isDebug = $isDebug;
+    }
+
     /**
      * @Route("/", name="app_homepage")
      */
@@ -30,10 +37,9 @@ class ArticleController extends AbstractController
     /**
      * @Route("/news/{slug}", name="article_show")
      */
-    public function show($slug, MarkdownInterface $markdown, AdapterInterface $cache, MarkdownHelper $markdownHelper)
+    public function show($slug, MarkdownInterface $markdown, AdapterInterface $cache, MarkdownHelper $markdownHelper, bool $isDebug)
     {
-        /*dump($slug, $this);*/
-        dump($cache);die;
+        dump($isDebug);die;
         $comments = [
             'i love fasting',
             'fasting improve cognitive inteligence',
