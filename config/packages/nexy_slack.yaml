@@ -1,2 +1,2 @@
 nexy_slack:
-    endpoint: https://hooks.slack.com/services/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
+    endpoint: '%env(SLACK_WEBHOOD_ENDPOINT)%'

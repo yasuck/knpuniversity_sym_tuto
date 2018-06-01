@@ -31,6 +31,7 @@
     <li>composer remove <lib> (remove a package)</li>
     <li>composer require knplabs/knp-markdown-bundle (markdowns like <b></b>)</li>
     <li>composer require maker (php bin/console make:controller)</li>
+    <li>composer require nexylan/slack-bundle php-http/guzzle6-adapter ()</li>
     <br>
     <li>bin/console debug:autowiring (to see all the autowiring services - not the full list)</li>
     <li>bin/console debug:counter --show-private (to see all the autowiring services - full list)</li>
@@ -64,4 +65,13 @@
     <li>
     Sometimes when services can't be used with autowiring, we need to config it in config/ to create an alias <br>
     to allow symfony recognise the service when autowiring :) (see example in services.yaml nexyslack)
+    </li>
+    <li>
+    In order to hide hardconded secret information, we need to pass them in the .env file, .env.dist is a template of .env not used by symfony
+    </li>
+    <li>
+    If a service is autowired u can intantiate it in the __construct parameter of an other service but if you want to instantiate if in other function
+    you need the @required above the function. You can also create traits and use them. (example Services/slackClient & Helper/LoggerTrait)
+    </li>
 </ul>
+

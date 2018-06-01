@@ -10,8 +10,8 @@ namespace App\Controller;
 
 
 use App\Services\MarkdownHelper;
+use App\Services\SlackClient;
 use Michelf\MarkdownInterface;
-use Nexy\Slack\Client;
 use Psr\Log\LoggerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -39,16 +39,10 @@ class ArticleController extends AbstractController
      * @Route("/news/{slug}", name="article_show")
      * @throws \Http\Client\Exception
      */
-    public function show($slug, MarkdownInterface $markdown, AdapterInterface $cache, MarkdownHelper $markdownHelper, Client $slack)
+    public function show($slug, MarkdownInterface $markdown, AdapterInterface $cache, MarkdownHelper $markdownHelper, SlackClient $slack)
     {
         if($slug == "khaaaan"){
-            $message = $slack->createMessage()
-                ->from('Khan')
-                ->withIcon(':ghost:')
-                ->setText('This is an amazing message!')
-            ;
-
-            $slack->sendMessage($message);
+            $slack->sendMessage('khan', 'hola mund!');
         }
         /*dump($slug, $this);*/
         $comments = [
@@ -57,7 +51,7 @@ class ArticleController extends AbstractController
             'cognitive & emotional inteligence are different'
         ];
 
-        dump($cache);die;
+        //dump($cache);die;
 
         $articleContent = <<<EOF
 Spicy **jalapeno bacon** ipsum dolor amet veniam shank in dolore. Ham hock nisi landjaeger cow,
