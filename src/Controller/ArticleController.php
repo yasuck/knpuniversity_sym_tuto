@@ -41,7 +41,7 @@ class ArticleController extends AbstractController
      */
     public function show($slug, MarkdownInterface $markdown, AdapterInterface $cache, MarkdownHelper $markdownHelper, SlackClient $slack)
     {
-        if($slug == "khaaaan"){
+        if($slug == "slack_message"){
             $slack->sendMessage('khan', 'hola mund!');
         }
         /*dump($slug, $this);*/

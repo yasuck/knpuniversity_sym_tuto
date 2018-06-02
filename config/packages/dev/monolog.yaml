@@ -10,6 +10,11 @@ monolog:
             path: "%kernel.logs_dir%/markdown.log"
             level: debug
             channels: ["markdown"]
+        my_custom_super_log:
+            type: stream
+            path: "%kernel.logs_dir%/my_custom_log.log"
+            level: debug
+            channels: ["my_custom_log"]
         # uncomment to get logging in your browser
         # you may have to allow bigger header sizes in your Web server configuration
         #firephp:

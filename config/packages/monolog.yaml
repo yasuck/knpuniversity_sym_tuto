@@ -1,2 +1,2 @@
 monolog:
-  channels: ['markdown']
+  channels: ['markdown', 'my_custom_log']

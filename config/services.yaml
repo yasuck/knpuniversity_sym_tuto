@@ -12,7 +12,7 @@ services:
                             # fetching services directly from the container via $container->get() won't work.
                             # The best practice is to be explicit about your dependencies anyway.
         bind:
-          $markdownLogger : '@monolog.logger.markdown'
+          $markdownLogger : '@monolog.logger.my_custom_log'
           $isDebug : true
 
     #It is put under services to show it in the autowiring list: php bin/console debug:autowiring
