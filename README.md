@@ -40,10 +40,12 @@
     <li>composer require knplabs/knp-markdown-bundle (markdowns like <b></b>)</li>
     <li>composer require maker -dev(php bin/console make:controller)</li>
     <li>composer require nexylan/slack-bundle php-http/guzzle6-adapter (super plugin to communicate with slack)</li>
+    <li>composer require doctrine (DB)</li>
+
 </ul>   
 <h2>Some console commands </h2>
 <ul> 
-    <li>bin/console (list console commands, a bundle can grand a command like server or make, u can create ur own with make:command, see articleStatsCommand.php example)
+    <li>bin/console (list console commands, a bundle can grand a command like server or make, u can create ur own with make:command, see articleStatsCommand.php example)</li>
     <li>bin/console debug:autowiring (to see all the autowiring services)</li>
     <li>bin/console debug:container <service_ID> --show-private (to see all services)</li>
     <li>bin/console cache:clear (clear cache after changing env for example)</li>
@@ -53,6 +55,13 @@
     you can configure the default features of a services, in my case i did it for knp_markdown service(KnpMardownBundle) <br>
     creating a knp_markdown.yaml file in config/packages and setting parser value
     </li>
+    <li>bin/console doctrine:database:create (once u configured ur .env file)</li>
+    <li>bin/console make:entity (create a php class with vars, getters & setters)</li>
+    <li>bin/console make:migration (generate migration: create the table insert querry)</li>
+    <li>bin/console doctrine:migrations:migrate  (run migration: create the table insert querry, it bases on the migration version to see if it should execute the migration or not)</li>
+    <li>bin/console doctrine:migrations:status  (current migration config)</li>
+
+
 </ul>
 <h2>Usefull info</h2>
 <ul>
