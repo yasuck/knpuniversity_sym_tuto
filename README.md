@@ -40,7 +40,6 @@
     <li>composer require knplabs/knp-markdown-bundle (markdowns like <b></b>)</li>
     <li>composer require maker -dev(php bin/console make:controller)</li>
     <li>composer require nexylan/slack-bundle php-http/guzzle6-adapter (super plugin to communicate with slack)</li>
-    <li>composer require doctrine (DB)</li>
     <li>composer require knplabs/knp-time-bundle (5 days ago)</li>
 
 </ul>   
@@ -56,11 +55,6 @@
     you can configure the default features of a services, in my case i did it for knp_markdown service(KnpMardownBundle) <br>
     creating a knp_markdown.yaml file in config/packages and setting parser value
     </li>
-    <li>bin/console doctrine:database:create (once u configured ur .env file)</li>
-    <li>bin/console make:entity (create a php class with vars, getters & setters)</li>
-    <li>bin/console make:migration (generate migration: create the table insert querry)</li>
-    <li>bin/console doctrine:migrations:migrate  (run migration: create the table insert querry, it bases on the migration version to see if it should execute the migration or not)</li>
-    <li>bin/console doctrine:migrations:status  (current migration config)</li>
     <li>bin/console make:twig-extension(create ur own twig extension, we did it for markdown_cache, to use markdown + cache)</li>
 
 
@@ -121,5 +115,20 @@
     you need the @required above the function. You can also create traits and use them. (example Services/slackClient & Helper/LoggerTrait)
     </li>
     <li>
+</ul>
+<h2>Doctrine</h2>
+<ul>
+    <li> UseFull commands
+        <ul>
+            <li>composer require doctrine (DB)</li>
+            <li>bin/console doctrine:database:create (once u configured ur .env file)</li>
+            <li>bin/console make:entity (create a php class with vars, getters & setters and a repository where u can create custom querries)</li>
+            <li>bin/console make:migration (generate migration: create the table insert querry)</li>
+            <li>bin/console doctrine:migrations:migrate  (run migration: create the table insert querry, it bases on the migration version to see if it should execute the migration or not)</li>
+            <li>bin/console doctrine:migrations:status  (current migration config)</li>        
+        </ul>
+    </li>
+    <li>A repository can be autoriwred </li>
+
 </ul>
 

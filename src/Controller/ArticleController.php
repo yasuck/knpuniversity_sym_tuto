@@ -10,6 +10,7 @@ namespace App\Controller;
 
 
 use App\Entity\Article;
+use App\Repository\ArticleRepository;
 use App\Services\MarkdownHelper;
 use App\Services\SlackClient;
 use Doctrine\ORM\EntityManagerInterface;
@@ -32,16 +33,22 @@ class ArticleController extends AbstractController
     /**
      * @Route("/", name="app_homepage")
      */
-    public function homepage()
+    public function homepage(ArticleRepository $repository)
     {
-        return $this->render('article/homepage.html.twig');
+        //$articles = $repository->findAll();
+//        $articles = $repository->findBy([], ['publishedAt' => 'DESC']);
+        $articles = $repository->findAllPublishedOrderedByNewest();
+        //dump($repository);die;
+        return $this->render('article/homepage.html.twig', [
+            'articles' => $articles
+        ]);
     }
 
     /**
      * @Route("/news/{slug}", name="article_show")
      * @throws \Http\Client\Exception
      */
-    public function show($slug, AdapterInterface $cache, MarkdownHelper $markdownHelper, SlackClient $slack, EntityManagerInterface $em)
+    public function show($slug, AdapterInterface $cache, SlackClient $slack, EntityManagerInterface $em)
     {
         //$slack->sendMessage('khan', 'hola mund!');
         /*dump($slug, $this);*/
