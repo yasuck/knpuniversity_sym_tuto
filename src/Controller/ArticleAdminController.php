@@ -42,11 +42,8 @@ mollit quis officia meatloaf tri-tip swine. Cow ut reprehenderit, buffalo incidi
 strip steak pork belly aliquip capicola officia. Labore deserunt esse chicken lorem shoulder tail consectetur
 cow est ribeye adipisicing. Pig hamburger pork belly enim. Do porchetta minim capicola irure pancetta chuck
 EOF
-            );
-
-        if(rand(1, 10) > 2){
-            $article->setPublishedAt(new \DateTime(sprintf('-% days', rand(1, 100))));
-        }
+            )
+            ->setPublishedAt(new \DateTime(sprintf('-% days', rand(1, 100))));
 
         //Two separate steps to be more flexible: imagine u would like to create 10 articles, u only need 1 flush! OPTIMISATION MAN ;)
         $em->persist($article);//I would like to save the article

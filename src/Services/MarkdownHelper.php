@@ -29,6 +29,11 @@ class MarkdownHelper
         $this->isDebug = $isDebug;
     }
 
+    /**
+     * @param string $source
+     * @return string
+     * @throws \Psr\Cache\InvalidArgumentException
+     */
     public function parse(string $source): string
     {
         if(stripos($source, 'bacon') !== false){
@@ -39,12 +44,17 @@ class MarkdownHelper
             return $this->markdown->transform($source);
         }
 
+
+        //Imagine that markdown demands a lot of resources to be executed ... no problem! use cache!
+        //-- Create a new cache key
         $item = $this->cache->getItem('markdown_' . md5($source));
+        //-- If there is not cache with the created key, then execute the markdown and save it in the cache
         if (!$item->isHit()) {
             $item->set($this->markdown->transform($source));
             $this->cache->save($item);
         }
 
+        //-- Get content from cache :)
         return $item->get();
     }
 }

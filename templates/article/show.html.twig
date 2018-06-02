@@ -17,7 +17,11 @@
                                             src="{{ asset('images/alien-profile.png') }}">
                                     Mike Ferengi
                                 </span>
-                                <span class="pl-2 article-details"> 3 hours ago</span>
+                                <span class="pl-2 article-details">
+                                    {# article.publishedAt ? article.publishedAt|date('Y-m-d') : 'unpublished' #}
+
+                                    {{ article.publishedAt ? article.publishedAt|ago : 'unpublished' }}
+                                </span>
                                 <span class="pl-2 article-details">
                                     <span class="js-like-article-count">90</span>
                                     <a href="{{ path('article_toggle_heart', {slug: article.slug}) }}"
@@ -29,7 +33,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="article-text">
-                                {{ article.content|markdown }} {# content | markdown #}
+                                {{ article.content|cached_markdown }} {# content | markdown #}
                             </div>
                         </div>
                     </div>

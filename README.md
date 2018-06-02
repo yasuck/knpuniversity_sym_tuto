@@ -41,6 +41,7 @@
     <li>composer require maker -dev(php bin/console make:controller)</li>
     <li>composer require nexylan/slack-bundle php-http/guzzle6-adapter (super plugin to communicate with slack)</li>
     <li>composer require doctrine (DB)</li>
+    <li>composer require knplabs/knp-time-bundle (5 days ago)</li>
 
 </ul>   
 <h2>Some console commands </h2>
@@ -60,6 +61,7 @@
     <li>bin/console make:migration (generate migration: create the table insert querry)</li>
     <li>bin/console doctrine:migrations:migrate  (run migration: create the table insert querry, it bases on the migration version to see if it should execute the migration or not)</li>
     <li>bin/console doctrine:migrations:status  (current migration config)</li>
+    <li>bin/console make:twig-extension(create ur own twig extension, we did it for markdown_cache, to use markdown + cache)</li>
 
 
 </ul>
