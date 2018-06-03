@@ -120,15 +120,20 @@
 <ul>
     <li> UseFull commands
         <ul>
-            <li>composer require doctrine (DB)</li>
+            <li>composer require doctrine (For oriented object SQL )</li>
+            <li>composer require orm-fixtures --dev (Allow u to generate data sets in DB -- very usefull for test)</li>
+            <li>composer require fzaninotto/faker --dev (Allow u to generate random fake data, i used it in orm-fixtures)</li>
+            <li>composer require stof/doctrine-extensions-bundle (I used it to generate unique slugs & TimestampableEntity(created & updated at), see config/packages/stof_doc_ext config and Entity/Article slug)</li>
             <li>bin/console doctrine:database:create (once u configured ur .env file)</li>
             <li>bin/console make:entity (create a php class with vars, getters & setters and a repository where u can create custom querries)</li>
-            <li>bin/console make:migration (generate migration: create the table insert querry)</li>
-            <li>bin/console doctrine:migrations:migrate  (run migration: create the table insert querry, it bases on the migration version to see if it should execute the migration or not)</li>
-            <li>bin/console doctrine:migrations:status  (current migration config)</li>        
+            <li>bin/console make:migration (prepare the table and generate an srx/Migrations/Versionxxxxxx file with an sql querry (update, insert or delete))</li>
+            <li>bin/console doctrine:migrations:migrate  (generate the table based on the srx/Migrations/Versionxxxxxx file)</li>
+            <li>bin/console doctrine:migrations:status  (see current migration config)</li>  
+            <li>bin/console make:fixtures (prepare the data set specified based in ur fixture file)</li>
+            <li>bin/console doctrine:fixtures:load (generate the data set)</li>
         </ul>
     </li>
-    <li>A repository can be autoriwred </li>
+    <li>A repository can be autoriwred</li>
 
 </ul>
 

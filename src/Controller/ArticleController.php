@@ -25,6 +25,7 @@ class ArticleController extends AbstractController
 {
 
     private $isDebug;
+
     public function __construct(bool $isDebug)
     {
         $this->isDebug = $isDebug;
@@ -35,6 +36,7 @@ class ArticleController extends AbstractController
      */
     public function homepage(ArticleRepository $repository)
     {
+
         //$articles = $repository->findAll();
 //        $articles = $repository->findBy([], ['publishedAt' => 'DESC']);
         $articles = $repository->findAllPublishedOrderedByNewest();
@@ -46,9 +48,10 @@ class ArticleController extends AbstractController
 
     /**
      * @Route("/news/{slug}", name="article_show")
-     * @throws \Http\Client\Exception
+     * @param SlackClient $slack
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function show($slug, AdapterInterface $cache, SlackClient $slack, EntityManagerInterface $em)
+    public function show($slug, SlackClient $slack, EntityManagerInterface $em)
     {
         //$slack->sendMessage('khan', 'hola mund!');
         /*dump($slug, $this);*/
@@ -56,7 +59,7 @@ class ArticleController extends AbstractController
         $repository = $em->getRepository(Article::class);
         /** @var Article $article */
         $article = $repository->findOneBy(['slug' => $slug]);
-        if(!$article){
+        if (!$article) {
             throw $this->createNotFoundException(sprintf('No article for slug "%s"', $slug));//Message shown to the dev
         }
 
@@ -77,10 +80,16 @@ class ArticleController extends AbstractController
     /**
      * @Route("/news/{slug}/heart", name="article_toggle_heart", methods={"POST"})
      */
-    public function toggleArticleHeart($slug, LoggerInterface $logger)
+    public function toggleArticleHeart(Article $article, LoggerInterface $logger, EntityManagerInterface $em)
     {
-        //TODO DB
         $logger->info("Article is being hearted!");
-        return new JsonResponse(['hearts' => rand(5, 100)]);
+        //$article->setHeartCount($article->getHeartCount()+1);
+        $article->incrementHeartCount();
+        //$em->persist($article); Not needed it is saved automatically in this case
+        $em->flush();
+
+        return new JsonResponse([
+            'hearts' => $article->getHeartCount()
+        ]);
     }
 }
